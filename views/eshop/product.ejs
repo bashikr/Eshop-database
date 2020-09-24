@@ -1,0 +1,34 @@
+<%- include("../eshop/header", {title: title, user: user}); %>
+
+<h1>Product details</h1>
+
+
+<pre><%#= JSON.stringify(res, null, 4) %></pre>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Kategori</th>
+        <th>Prodnamn</th>
+        <th>Pris</th>
+        <th>Beskrivning</th>
+        <th>Antal</th>
+        <th>Ändra</th>
+    </tr>
+<% for (const row of res) { %>
+    <tr>
+        <td><a href="/eshop/product-show/<%= row.id %>"><%= row.id %></a></td>
+        <td><%= row.kategori %></td>
+        <td><%= row.prodnamn %></td>
+        <td class="right"><%= row.pris %> kr</td>
+        <td><%= row.beskrivning %></td>
+        <td class="right"><%= row.antal %> st</td>
+        <td>
+            <a href="/eshop/edit/<%= row.id %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+            <a href="/eshop/delete/<%= row.id %>"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+        </td>
+    </tr>
+<% }; %>
+</table>
+
+<a class="add-product" href="/eshop/product-create">Skapa produkt</a>
+<%- include("../eshop/footer"); %>

@@ -1,0 +1,21 @@
+<%- include("../eshop/header", {title: title, user: user}); %>
+<div class="login-style">
+<h1>Login to the Eshop</h1>
+
+<p>Login to get a session.</p>
+
+<form class="label-left" method="post">
+    <fieldset>
+        <legend>Login</legend>
+
+        <label for="user">User</label>
+        <input id="user" type="text" name="user">
+
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password">
+
+        <input type="submit" name="doit" value="Login">
+    </fieldset>
+</form>
+</div>
+<%- include("../eshop/footer"); %>

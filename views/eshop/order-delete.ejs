@@ -1,0 +1,21 @@
+<%- include("../eshop/header", {title: title, user: user}); %>
+
+<h1>Order details</h1>
+
+
+<pre><%#= JSON.stringify(res, null, 4) %></pre>
+<table>
+    <tr>
+        <th>Order ID</th>
+        <th>Kund ID</th>
+        <th>Namn</th>
+        <th>Datum</th>
+        <th>Antal Produkter</th>
+        <th>Status</th>
+    </tr>
+</table>
+
+
+<a href="/eshop/order/"><p class="customer-button">Orders</p></a>
+
+<%- include("../eshop/footer"); %>

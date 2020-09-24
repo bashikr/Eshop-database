@@ -1,0 +1,19 @@
+<%- include("../eshop/header", {title: title, user: user}); %>
+
+<h1>Product details</h1>
+
+
+<pre><%#= JSON.stringify(res, null, 4) %></pre>
+
+<table>
+    <tr>
+        <th>Id</th>
+    </tr>
+<% for (const row of res) { %>
+    <tr>
+        <td><%= row.produkt_id %></td>
+    </tr>
+<% }; %>
+</table>
+
+<%- include("../eshop/footer"); %>

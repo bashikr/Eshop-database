@@ -1,0 +1,38 @@
+<%- include("../eshop/header", {title: title, user: user}); %>
+
+<h1>Order details</h1>
+
+
+<pre><%#= JSON.stringify(res, null, 4) %></pre>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Efternamn</th>
+        <th>fornamn</th>
+        <th>Telefon</th>
+        <th>Adress</th>
+        <th>Postnummer</th>
+        <th>Ort</th>
+        <th>Land</th>
+        <th>cre</th>
+    </tr>
+<% for (const row of res) { %>
+    <tr>
+        <td class="middle"><%= row.id %></td>
+        <td><%= row.efternamn %></td>
+        <td><%= row.fornamn %></td>
+        <td><%= row.telefon %></td>
+        <td><%= row.adress %></td>
+        <td><%= row.postnummer %></td>
+        <td><%= row.ort %></td>
+        <td><%= row.land %></td>
+        <td>
+            <a class="order" href="/eshop/order-create/<%= row.id %>"><p class="create-order">Skapa</p></a>
+        </td>
+    </tr>
+    <% }; %>
+</table>
+
+<a href="/eshop/customer/"><p class="customer-button">kunder</p></a>
+
+<%- include("../eshop/footer"); %>

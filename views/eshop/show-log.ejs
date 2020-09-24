@@ -1,0 +1,38 @@
+<%- include("../eshop/header", {title: title, user: user}); %>
+<body>
+<h1 class="middle">Show Events</h1>
+
+<form class="search-form" method="get" action="/eshop/log">
+    <input class="search-style" type="text" name="search" placeholder="Search here ...">
+
+    <input class="search-style-create" type="submit" value="search">
+    </form>
+
+<table>
+
+    <tr>
+        <th>Id</th>
+        <th>What</th>
+        <th>when</th>
+        <th>Product</th>
+        <th>Product name</th>
+    </tr>
+<% for (const row of res) { %>
+    <tr>
+        <td class="middle"><%= row.id %></td>
+        <td class="middle"><%= row.when %></td>
+        <td class="middle"><%= row.what %></td>
+        <td class="middle"><%= row.produkt %></td>
+        <td class="middle"><%= row.prodnamn %></td>
+    </tr>
+
+
+<% }; %>
+
+</table>
+
+
+
+</body>
+<%- include("../eshop/footer"); %>
+

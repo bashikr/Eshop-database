@@ -1,0 +1,31 @@
+<%- include("../eshop/header", {title: title, user: user}); %>
+
+<h1>Delete product</h1>
+
+
+<% res = res[0] %>
+<form class="label-left" method="post" action="/eshop/delete">
+    <fieldset>
+        <legend>Delete product</legend>
+
+        <label for="ettId">Id</label>
+        <input id="ettId" type="text" name="ettId" readonly value="<%= res.id %>">
+
+        <label for="ett_pris">Price</label>
+        <input id="ett_pris" type="number" name="ett_pris" readonly value="<%= res.pris %>">
+
+        <label for="ett_prodnamn">Name</label>
+        <input id="ett_prodnamn" type="text" name="ett_prodnamn" readonly value="<%= res.prodnamn %>">
+
+        <label for="ett_bildlank">Bild link</label>
+        <input id="ett_bildlank" type="text" name="en_bildlank" readonly value="<%= res.bildlank %>">
+
+        <label for="en_beskrivning">Beskrivning</label>
+        <input id="en_beskrivning" type="text" name="en_beskrivning" readonly value="<%= res.beskrivning %>">
+
+
+        <input type="submit" name="doit" value="Delete">
+    </fieldset>
+</form>
+
+<%- include("../eshop/footer"); %>

@@ -1,0 +1,13 @@
+<%- include("../eshop/header", {title: title, user: user}); %>
+<body>
+
+<div class="middle big-size">
+<% for (const row2 of res2) { %>
+    <td class="middle">Thank you dear: </td><td><%= row2.fornamn %> <%= row2.efternamn %></td>
+<% }; %>
+<h3>We have received your order and will be processing it soon!</h3>
+</div>
+
+
+</body>
+<%- include("../eshop/footer"); %>

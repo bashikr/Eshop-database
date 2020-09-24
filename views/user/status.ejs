@@ -1,0 +1,11 @@
+<%- include("../eshop/header", {title: title, user: user}); %>
+<div class="login-style">
+<h1>Status of user and session</h1>
+
+<p class="middle">You are logged in as user <strong style="color: green;"><%= user %></strong>.</p>
+</div>
+<!-- <p>Session contains:</p> -->
+
+<!-- <pre><%= JSON.stringify(session, null, 4) %></pre> -->
+
+<%- include("../eshop/footer"); %>

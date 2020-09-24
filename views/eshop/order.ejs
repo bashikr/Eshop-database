@@ -1,0 +1,50 @@
+<%- include("../eshop/header", {title: title, user: user}); %>
+
+<h1>Order details</h1>
+
+
+<pre><%#= JSON.stringify(res, null, 4) %></pre>
+<table>
+    <tr>
+        <th>Order ID</th>
+        <th>Kund ID</th>
+        <th>Namn</th>
+        <th>Datum</th>
+        <th>Antal Produkter</th>
+        <th>Status</th>
+    </tr>
+<% for (const row of res) { %>
+    <tr>
+        <td><%= row.order_id %></td>
+        <td class="middle"><%= row.kundId %></td>
+        <td class="middle"><%= row.fornamn %> <%= row.efternamn %></td>
+        <td class="middle"><%= row.created.toLocaleString() %></td>
+        <td class="middle"><%= row.antal %> st</td>
+        
+        <td class="middle"><%if (row.status == "deliverd") { %>
+            <div style="color: green; font-weight: 550; text-transform:uppercase;"><%= row.status %></div>
+            <% } else if (row.status == "orderd") { %>
+            <div style="color: #e6be3b; font-weight: 550; text-transform:uppercase;"><%= row.status %></div>
+            <% } else if (row.status == "created") { %>
+            <div style="color: red; font-weight: 550; text-transform:uppercase;"><%= row.status %></div>
+            <% }; %>
+        </td>
+        <td>
+            <a class="order" href="/eshop/order-show/<%= row.order_id %>"><p class="create-order">Show</p></a>
+            <a class="order" href="/eshop/picklist/<%= row.order_id %>"><p class="create-order">Show picklist</p></a>
+            <a class="order" href="/eshop/order-delete/<%= row.order_id %>">
+                <div class="create-order tooltip">Delete
+                <span class="tooltiptext">Only created orders</span>
+                </div>
+            </a>
+        </td>
+    </tr>
+<% }; %>
+</table>
+
+<a href="/eshop/customer/"><p class="customer-button">kunder</p></a>
+
+<%- include("../eshop/footer"); %>
+
+
+

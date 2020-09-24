@@ -1,0 +1,30 @@
+<%- include("../eshop/header", {title: title, user: user}); %>
+
+<h1>PickList</h1>
+
+<table>
+    <tr>
+        <th>order ID</th>
+        <th>Produkt ID</th>
+        <th>orderd</th>
+        <th>antal</th>
+        <th>plats</th>
+        <th>lagerDiff</th>
+        <th>status</th>
+    </tr>
+<% for (const row of res) { %>
+    <tr>
+        <td class="middle"><%= row.orderId %></td>
+        <td class="middle"><%= row.produktId %></td>
+        <td class="middle"><%= row.bestallt %></td>
+        <td class="middle"><%= row.antal %></td>
+        <td class="middle"><%= row.lagerhylla %></td>
+        <td class="middle"><%= row.lagerDiff %> st</td>
+        <td class="middle"><%= row.status %></td>
+    </tr>
+<% }; %>
+</table>
+
+<a class="order" href="/eshop/order/"><p class="create-order">Orders</p></a>
+
+<%- include("../eshop/footer"); %>

@@ -1,0 +1,55 @@
+<%- include("../eshop/header", {title: title, user: user}); %>
+
+<h1 class="middle">Products in your shopping cart</h1>
+<div class="middle big-size">
+<% for (const row of res) { %>
+    <td>Order Nr: <%= row.order_id %></td> |
+    <td><%= row.fornamn %> <%= row.efternamn %></td>
+<% }; %>
+</div>
+
+
+<table>
+    <tr>
+        <th>Order ID</th>
+        <th>Produkt ID</th>
+        <th>Produkt namn</th>
+        <th>Antal</th>
+        <th>Pris</th>
+    </tr>
+<% for (const row1 of res1) { %>
+    <tr>
+        <td class="middle"><%= row1.orderId %></td>
+        <td class="middle"><%= row1.produktId %></td>
+        <td class="middle"><%= row1.prodnamn %></td>
+        <td class="middle"><%= row1.antprodukter %> st</td>
+        <td class="middle"><%= row1.pris %></td>
+    </tr>
+<% }; %>
+</table>
+
+<% for (const row of res) { %>
+    <a class="create" href="/eshop/send/<%= row.order_id %>"><p class="customer-button">Order products</p></a>
+    <a class="create" href="/eshop/order-row-create/<%= row.order_id %>"><p class="customer-button1">Add products</p></a>
+<% }; %>
+
+
+<div class="faktura">
+<h2>Invoice</h2>
+<% for (const row1 of res1) { %>
+<p>
+     - <%= row1.produktId %>: <%= [row1.pris * row1.antprodukter] %> kr
+</p>
+<% }; %>
+
+<% var sum = 0%>
+
+<% for (const row1 of res1) { %>
+- Total: <%= sum = sum + parseInt([row1.pris * row1.antprodukter]) %> kr
+
+<% }; %>
+</div>
+
+
+
+<%- include("../eshop/footer"); %>

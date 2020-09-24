@@ -1,0 +1,20 @@
+<%- include("../eshop/header", {title: title, user: user}); %>
+
+<h1>Category</h1>
+
+<p>Here is the Café categories</p>
+
+<pre><%#= JSON.stringify(res, null, 4) %></pre>
+
+<table>
+    <tr>
+        <th>Id</th>
+    </tr>
+<% for (const row of res) { %>
+    <tr>
+        <td><a href="/eshop/category-show/<%= row.id %>"><%= row.id %></a></td>
+    </tr>
+<% }; %>
+</table>
+
+<%- include("../eshop/footer"); %>

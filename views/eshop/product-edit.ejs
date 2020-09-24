@@ -1,0 +1,31 @@
+<%- include("../eshop/header", {title: title, user: user}); %>
+
+<h1>Edit product details</h1>
+
+<pre><%#= JSON.stringify(res, null, 4) %></pre>
+
+<% res = res[0] %>
+<form class="label-left" method="post" action="/eshop/edit">
+    <fieldset>
+        <legend>Edit product</legend>
+
+        <label for="ettId">Id</label>
+        <input id="ettId" type="text" name="ettId" readonly value="<%= res.id %>">
+
+        <label for="ett_pris">Price</label>
+        <input id="ett_pris" type="number" name="ett_pris" value="<%= res.pris %>">
+
+        <label for="ett_prodnamn">name</label>
+        <input id="ett_prodnamn" type="text" name="ett_prodnamn" value="<%= res.prodnamn %>">
+
+        <label for="ett_bildlank">Bild link</label>
+        <input id="ett_bildlank" type="text" name="en_bildlank" value="<%= res.bildlank %>">
+
+        <label for="en_beskrivning">Beskrivning</label>
+        <input id="en_beskrivning" type="text" name="en_beskrivning" value="<%= res.beskrivning %>">
+
+        <input type="submit" name="doit" value="Edit">
+    </fieldset>
+</form>
+
+<%- include("../eshop/footer"); %>

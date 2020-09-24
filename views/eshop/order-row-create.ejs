@@ -1,0 +1,48 @@
+<%- include("../eshop/header", {title: title, user: user}); %>
+<body>
+<h1 class="middle">Make an order row</h1>
+
+
+<form method="post" action="/eshop/order-row-create">
+    <h3 class="middle">Products</h3>
+    <br>
+
+    <table>
+        <tr>
+            <th>Id</th>
+            <th style="color: #fdd343;">Välj produkt</th>
+            <th>Priser</th>
+            <th style="color: #fdd343;">Välj antal</th>
+            <th>Lägg till i varukorgen</th>
+        </tr>
+        <tr>
+            <td class="middle">
+                <input class="small middle" type="number" name="orderId" value="<%= orderId %>" readonly>
+            </td>
+            <td class="middle">
+                <select name="prod_id">
+                <% for (const row of res) { %>
+                    <option value="<%= row.id %>"><%= row.id %></option>
+                <% } %>
+            </select>
+            </td>
+            <td class="middle">
+                <select name="pris">
+                    <% for (const row of res) { %>
+                        <option type="number" value="<%= row.pris %>" readonly><%= row.id %> costs <%= row.pris %>kr/ st</option>
+                    <% } %>
+                </select>
+            </td>
+            <td class="middle">
+                <input class="small" type="number" name="amount" value="0"> st
+            </td>
+            
+            <td class="middle">
+                <input class="create-order middle" type="submit" class="create" value="Lägg till">
+            </td>
+        </tr>
+    </table>
+</form>
+
+</body>
+<%- include("../eshop/footer"); %>
